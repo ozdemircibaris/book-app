@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class BookService {
+    func addBook() {
+        
+    }
+}

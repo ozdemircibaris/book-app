@@ -9,14 +9,25 @@ import SwiftUI
 
 struct BookListScreen: View {
     @ObservedObject private var bookVM: BookListViewModel
-    
+
     init() {
         self.bookVM = BookListViewModel()
     }
-    
+
     var body: some View {
-        let _ = print("book", bookVM.bookList)
-        Text("book list")
+        NavigationStack {
+            VStack {
+                NavigationLink(destination: AddBookScreen()) {
+                    Text("Add Book")
+                }
+                Button("update test") {
+                    bookVM.changeTest(value: "deneme")
+                }
+                Text("book list \(bookVM.test)")
+            }.onReceive(self.bookVM.$bookList) { count in
+                print("on receive",count)
+            }
+        }
     }
 }
 

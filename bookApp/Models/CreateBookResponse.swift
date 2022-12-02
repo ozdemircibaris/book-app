@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct CreateBookResponse: Decodable {
+    let status: String
+    let data: Book
+}
