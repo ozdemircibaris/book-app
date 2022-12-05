@@ -33,19 +33,3 @@ extension View {
         return image
     }
 }
-
-//func saveImage(image: UIImage) -> Bool {
-//    guard let data = pngpres(image, 1) ?? UIImagePNGRepresentation(image) else {
-//        return false
-//    }
-//    guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
-//        return false
-//    }
-//    do {
-//        try data.write(to: directory.appendingPathComponent("fileName.png")!)
-//        return true
-//    } catch {
-//        print(error.localizedDescription)
-//        return false
-//    }
-//}
