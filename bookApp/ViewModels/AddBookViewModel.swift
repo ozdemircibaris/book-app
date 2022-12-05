@@ -9,15 +9,20 @@ import Foundation
 import SwiftUI
 
 class AddBookViewModel: ObservableObject {
+    var bookVM: BookListViewModel?
+
+    var uuid: UUID = UUID()
     var title: String = ""
     var writer: String = ""
     
-    @ObservedObject private var bookVM = BookListViewModel()
     
+    func setup(_ bookVM: BookListViewModel) {
+      self.bookVM = bookVM
+    }
+
     func addBook() {
         DispatchQueue.main.async {
-            self.bookVM.bookList.append(BookViewModel(book: Book(id: UUID(), title: self.title, writer: self.writer)))
+            self.bookVM?.bookList.append(BookViewModel(book: Book(id: self.uuid, title: self.title, writer: self.writer)))
         }
-        print("book list", self.bookVM.bookList)
     }
 }

@@ -10,16 +10,6 @@ import Foundation
 class BookListViewModel: ObservableObject {
     @Published var bookList = [BookViewModel]()
     @Published var test: String = ""
-    
-    func changeTest(value: String) {
-        test = value
-    }
-
-    func addBook(createBookRequest: CreateBookRequest) {
-        DispatchQueue.main.async {
-            self.bookList.append(BookViewModel(book: Book(id: createBookRequest.id, title: createBookRequest.title, writer: createBookRequest.writer)))
-        }
-    }
 }
 
 struct BookViewModel {
