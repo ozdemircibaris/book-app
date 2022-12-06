@@ -21,6 +21,12 @@ struct BookListScreen: View {
                     HStack {
                         Text("\(book.title) BOOK")
                         Text(book.writer)
+                        Button("Delete") {
+                            bookVM.deleteBook(bookId: book.id)
+                        }
+                        Button("update") {
+                            bookVM.updateBook(bookId: book.id, title: book.title, writer: book.writer)
+                        }
                     }
                 }
             }

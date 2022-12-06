@@ -8,7 +8,7 @@
 import Foundation
 
 struct Book: Codable {
-    let id: UUID
-    let title: String
-    let writer: String
+    var id: UUID
+    var title: String
+    var writer: String
 }
